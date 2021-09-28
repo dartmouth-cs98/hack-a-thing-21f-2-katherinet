@@ -10,7 +10,7 @@ Include some screenshots.
 
 ## Who Did What?
 
-TODO: who worked on what part?
+I worked on all of it!
 
 ## What you learned
 
