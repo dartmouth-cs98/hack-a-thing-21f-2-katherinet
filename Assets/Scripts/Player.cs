@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
 
     // FixedUpdate is called once every physics update
     private void FixedUpdate() {
+        // horizontal velocity
+        rigidBodyComponent.velocity = new Vector3(horizontalInput, GetComponent<Rigidbody>().velocity.y, 0);
+
         // if the player is not overlapping with anything (aka in the air)
         if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0) {
             return;
@@ -39,11 +42,8 @@ public class Player : MonoBehaviour
 
         // up down velocity
         if (jumpKeyWasPressed) {
-            rigidBodyComponent.AddForce(Vector3.up * 5, ForceMode.VelocityChange);
+            rigidBodyComponent.AddForce(Vector3.up * 7, ForceMode.VelocityChange);
             jumpKeyWasPressed = false;
         }
-
-        // horizontal velocity
-        rigidBodyComponent.velocity = new Vector3(horizontalInput, GetComponent<Rigidbody>().velocity.y, 0);
     }
 }
