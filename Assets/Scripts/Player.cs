@@ -7,11 +7,13 @@ public class Player : MonoBehaviour
 {
     private bool jumpKeyWasPressed;
     private float horizontalInput;
+    private Rigidbody rigidBodyComponent;
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidBodyComponent = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -28,13 +30,25 @@ public class Player : MonoBehaviour
 
     // FixedUpdate is called once every physics update
     private void FixedUpdate() {
+        if (!isGrounded) {
+            return;
+        }
+
         // up down velocity
         if (jumpKeyWasPressed) {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * 5, ForceMode.VelocityChange);
+            rigidBodyComponent.AddForce(Vector3.up * 5, ForceMode.VelocityChange);
             jumpKeyWasPressed = false;
         }
 
         // horizontal velocity
-        GetComponent<Rigidbody>().velocity = new Vector3(horizontalInput, GetComponent<Rigidbody>().velocity.y, 0);
+        rigidBodyComponent.velocity = new Vector3(horizontalInput, GetComponent<Rigidbody>().velocity.y, 0);
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        isGrounded = true;
+    }
+
+    private void OnCollisionExit(Collision collision) {
+        isGrounded = false;
     }
 }
