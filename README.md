@@ -3,9 +3,8 @@
 
 ## What you built? 
 
-TODO: I attempted to build a simple game in Unity3d!
-
-Include some screenshots.
+I attempted to build a simple game in Unity3d!
+![](./sc1.jpg)
 [How?](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files)
 
 ## Who Did What?
