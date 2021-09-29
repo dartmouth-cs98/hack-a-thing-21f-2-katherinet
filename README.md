@@ -6,7 +6,8 @@
 I attempted to build a simple game in Unity3d!
 ![](./images/sc1.png)
 
-I then added in coins!
+I then added in coins which give the player superjump abilities!
+![](./images/sc2.png)
 
 
 ## Who Did What?
