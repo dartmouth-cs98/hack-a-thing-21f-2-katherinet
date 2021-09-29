@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Transform groundCheckTransform = null;
     private bool jumpKeyWasPressed;
     private float horizontalInput;
     private Rigidbody rigidBodyComponent;
-    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
 
     // FixedUpdate is called once every physics update
     private void FixedUpdate() {
-        if (!isGrounded) {
+        // if the player is not overlapping with anything (aka in the air)
+        if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f).Length <= 1) {
             return;
         }
 
@@ -42,13 +43,5 @@ public class Player : MonoBehaviour
 
         // horizontal velocity
         rigidBodyComponent.velocity = new Vector3(horizontalInput, GetComponent<Rigidbody>().velocity.y, 0);
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit(Collision collision) {
-        isGrounded = false;
     }
 }
