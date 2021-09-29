@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private bool jumpKeyWasPressed;
     private float horizontalInput;
     private Rigidbody rigidBodyComponent;
+    private int superJumpsRemaining;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +43,21 @@ public class Player : MonoBehaviour
 
         // up down velocity
         if (jumpKeyWasPressed) {
-            rigidBodyComponent.AddForce(Vector3.up * 7, ForceMode.VelocityChange);
+            float jumpPower = 5f;
+            if (superJumpsRemaining > 0) {
+                jumpPower *= 2;
+                superJumpsRemaining--;
+            }
+            rigidBodyComponent.AddForce(Vector3.up * jumpPower, ForceMode.VelocityChange);
             jumpKeyWasPressed = false;
+        }
+    }
+
+    // destroys coin when player runs into coin
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.layer == 6) {
+            Destroy(other.gameObject);
+            superJumpsRemaining++;
         }
     }
 }

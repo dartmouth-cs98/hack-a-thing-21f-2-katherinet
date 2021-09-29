@@ -6,8 +6,8 @@
 I attempted to build a simple game in Unity3d!
 ![](./images/sc1.png)
 
+I then added in coins!
 
-[How?](https://help.github.com/articles/about-readmes/#relative-links-and-image-paths-in-readme-files)
 
 ## Who Did What?
 
@@ -15,15 +15,14 @@ I worked on all of it!
 
 ## What you learned
 
-TODO: what worked / what didn't work
-taught good coding habits (ex: using getComponent minimally)
-really easy and intuitive to use UI
-In his scripts there seemed to be way more automatic guessing of what was happening. I'm not sure if this was because it was my first time coding with Unity / C# so computer doesn't recognize the built-in functions yet?
+Unity was really fun to learn! I'm currently in a 3d digital modeling class and I previously have taken CS77 (computer graphics) and unity felt like a fun mix of those two classes! One thing I really liked about this tutorial was that he put in an emphasis on good coding habits and showed multiple ways to fix common bugs and explained the pros and cons to the various methods. I thought Unity had a really easy and intuitive UI, which made me want to keep playing around after I finished my tutorial!  
+
+However, in his scripts there seemed to be way more automatic guessing of what was happening. I'm not sure if this was because it was my first time coding with Unity / C# so computer doesn't yet recognize the built-in functions yet?
 
 ## Authors
 
-TODO: list of authors
+Katherine Taylor
 
 ## Acknowledgments
 
-TODO: cite any tutorials followed here
+I follows the following tutorial: https://www.youtube.com/watch?v=pwZpJzpE2lQ 
