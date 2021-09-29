@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform groundCheckTransform = null;
+    [SerializeField] private LayerMask playerMask;
+
     private bool jumpKeyWasPressed;
     private float horizontalInput;
     private Rigidbody rigidBodyComponent;
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
     // FixedUpdate is called once every physics update
     private void FixedUpdate() {
         // if the player is not overlapping with anything (aka in the air)
-        if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f).Length <= 1) {
+        if (Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0) {
             return;
         }
 
